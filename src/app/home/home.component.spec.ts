@@ -22,7 +22,7 @@ describe(`Home`, () => {
   let comp: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
-  // async beforeEach
+  // async beforeEach!
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HomeComponent],
