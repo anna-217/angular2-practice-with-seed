@@ -31,6 +31,10 @@ import { XLargeDirective } from './home/x-large';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import { CollapseExpandComponent } from "./collapse-expand/collapse-expand.component";
+import { StoreModule } from "@ngrx/store";
+import { calReducer, CalEffects } from "./calculator/calculator.redux";
+import { EffectsModule } from "@ngrx/effects";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -54,13 +58,16 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    CollapseExpandComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+  StoreModule.provideStore({calReducer}),
+  EffectsModule.run(CalEffects),
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

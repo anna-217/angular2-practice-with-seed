@@ -1,0 +1,33 @@
+<table>
+    <tr>
+        <th (click)="toggleState()">
+            people lists
+        </th>
+    </tr>
+<div [@collapse]="collapseState">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Sex</th>
+        <th>Address</th>
+    </tr>
+
+    <tbody>
+        <tr *ngFor="let person of list">
+            <td>
+                {{person.name}}
+            </td>
+            <td>
+                {{person.age}}
+            </td>
+            <td>
+                {{person.sex}}
+            </td>
+            <td>
+                {{person.address}}
+            </td>
+        </tr>
+
+    </tbody>
+</div>
+</table>

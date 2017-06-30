@@ -7,6 +7,8 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
+import { Store } from "@ngrx/store";
+import { State, INCREMENT } from "./calculator/calculator.redux";
 
 /*
  * App Component
@@ -55,12 +57,21 @@ export class AppComponent implements OnInit {
   public name = 'Angular 2 Webpack Starter';
   public url = 'https://twitter.com/AngularClass';
 
-  constructor(
-    public appState: AppState
-  ) {}
+// data = '';
+
+//   constructor(
+//     public appState: AppState,
+//     private store: Store<State>
+//   ) {
+//     store.select('calReducer').subscribe((data:State)=>{
+//       this.data = 'data is' + data.counter;
+//     });
+
+//     this.store.dispatch({type: INCREMENT, payload:{innerObj:{text:"derp!"}}});
+//   }
 
   public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
+    //console.log('Initial App State', this.appState.state);
   }
 
 }
